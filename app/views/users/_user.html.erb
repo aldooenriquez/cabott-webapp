@@ -1,0 +1,24 @@
+<div id="<%= dom_id user %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= user.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Role:</strong>
+    <%= user.role %>
+  </p>
+
+  <% if user.branch.present?%>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Branch:</strong>
+      <%= user.branch.name %>
+    </p>
+  <% end %>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= user.email %>
+  </p>
+
+</div>

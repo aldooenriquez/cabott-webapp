@@ -1,0 +1,63 @@
+<%= form_with(model: voucher, class: "contents") do |form| %>
+  <% if voucher.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(voucher.errors.count, "error") %> prohibited this voucher from being saved:</h2>
+
+      <ul>
+        <% voucher.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :contact_name %>
+    <%= form.text_field :contact_name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :contact_email %>
+    <%= form.text_field :contact_email, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div data-controller="provider">
+    <div class="my-5">
+      <%= form.label 'Provider' %>
+      <%= form.select(:provider_id, options_from_collection_for_select(Provider.where(branch_id: current_user.branch_id), 'id', 'name'), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", data: { action: "change->provider#change"}) %>
+    </div>
+
+    <div class="my-5">
+      <%= form.label :activity_id %>
+      <%= form.select(:activity_id, [], {}, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", data: { provider_target: "activitySelect" }) %>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :reservation_date %>
+    <%= form.date_field :reservation_date, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :payment_type %>
+    <%= form.select(:payment_type, options_for_select(Voucher.payment_types.map {|key, value| [key.humanize.capitalize, Voucher.payment_types.key(value)]}, voucher.payment_type), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :payment_tax %>
+    <%= form.check_box :payment_tax, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "mb-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

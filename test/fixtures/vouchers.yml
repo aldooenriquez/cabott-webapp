@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_name: MyString
+  contact_email: MyString
+  activity: one
+  status: 1
+  payment_type: 1
+  total: 1
+
+two:
+  contact_name: MyString
+  contact_email: MyString
+  activity: two
+  status: 1
+  payment_type: 1
+  total: 1

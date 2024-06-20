@@ -1,0 +1,57 @@
+<div id="<%= dom_id voucher %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Voucher code:</strong>
+    <%= voucher.branched_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Contact name:</strong>
+    <%= voucher.contact_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Contact email:</strong>
+    <%= voucher.contact_email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Seller's name:</strong>
+    <%= voucher.user.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Activity:</strong>
+    <%= voucher.activity.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Reservation date:</strong>
+    <%= voucher.reservation_date.strftime("%d/%m/%Y") %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Comments:</strong>
+    <%= voucher.comment %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= voucher.status %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Payment type:</strong>
+    <%= voucher.payment_type %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Payment tax applied?</strong>
+    <%= voucher.payment_tax %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Total:</strong>
+    <%= voucher.total %>
+  </p>
+
+</div>

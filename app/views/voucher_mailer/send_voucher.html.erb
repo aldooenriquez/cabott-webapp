@@ -1,0 +1,18 @@
+<h1>Thank you for booking with us, <%= @voucher.contact_name %>!</h1>
+<h2>Client information:</h2>
+<p>
+<strong>Name:</strong> <%= @voucher.contact_name %><br>
+<strong>Reservation code:</strong> <%= @voucher.branched_id %><br>
+<strong>Activity:</strong> <%= @activity.name %><br>
+<strong>Provider:</strong> <%= @provider.name %><br>
+<strong>Date:</strong> <%= @voucher.reservation_date.strftime("%d/%m/%Y") %><br>
+</p>
+<h2>Comments:</h2>
+<p><%= @voucher.comment %>
+<h2>Thanks for joining and have a great day!</h2>
+<p>
+  Please note that our transfer representative, from Cabo T&T Company - authorized by
+  Playa Hotels & Resorts - will be waiting for you outside the terminal, wearing grey
+  slacks and a black uniform shirt holding a small sign so you can recognize him. It will
+  be very important; you show this confirmation to him/her to board the car.
+</p>

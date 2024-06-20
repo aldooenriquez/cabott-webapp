@@ -1,0 +1,32 @@
+<%= form_with(model: provider, class: "contents") do |form| %>
+  <% if provider.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+
+      <ul>
+        <% provider.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :contact_email %>
+    <%= form.text_field :contact_email, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :branch_id %>
+    <%= form.select(:branch_id, options_from_collection_for_select(Branch.all, 'id', 'name', provider.branch_id), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "mb-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white inline-block font-medium cursor-pointer"%>
+  </div>
+<% end %>

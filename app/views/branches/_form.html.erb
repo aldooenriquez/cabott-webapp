@@ -1,0 +1,37 @@
+<%= form_with(model: branch, class: "contents") do |form| %>
+  <% if branch.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+
+      <ul>
+        <% branch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :code %>
+    <%= form.text_field :code, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :state %>
+    <%= form.text_field :state, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :country, style: "display: block" %>
+    <%= form.select(:country, options_for_select(Branch.countries.map {|key, value| [key.humanize.capitalize, Branch.countries.key(value)]}, branch.country), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "mb-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

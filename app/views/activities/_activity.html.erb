@@ -1,0 +1,27 @@
+<div id="<%= dom_id activity %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= activity.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= activity.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Provider:</strong>
+    <%= activity.provider.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Provider price:</strong>
+    $<%= activity.provider_price %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Public price:</strong>
+    $<%= activity.public_price %>
+  </p>
+
+</div>
