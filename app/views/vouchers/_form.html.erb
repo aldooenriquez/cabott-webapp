@@ -35,7 +35,7 @@
 
   <div class="my-5">
     <%= form.label :reservation_date %>
-    <%= form.date_field :reservation_date, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.date_field :reservation_date, value: Date.current.strftime('%Y-%m-%d'), class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">

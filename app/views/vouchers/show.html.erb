@@ -6,10 +6,14 @@
 
     <%= render @voucher %>
 
-    <%= link_to "Edit this voucher", edit_voucher_path(@voucher), class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Back to vouchers", vouchers_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block">
-      <%= button_to "Destroy this voucher", @voucher, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 font-medium" %>
-    </div>
+    <% if current_user.admin? %>
+      <%= link_to "Edit this voucher", edit_voucher_path(@voucher), class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Back to vouchers", vouchers_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block">
+        <%= button_to "Destroy this voucher", @voucher, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 font-medium" %>
+      </div>
+    <% else %>
+      <%= link_to "Back to vouchers", vouchers_path, class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
   </div>
 </div>
