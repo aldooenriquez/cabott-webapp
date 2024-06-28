@@ -1,3 +1,4 @@
-WickedPdf.config = {
-  exe_path: Gem.bin_path('wkhtmltopdf-binary', 'wkhtmltopdf')
-}
+WickedPdf.config ||= {}
+WickedPdf.config.merge!({
+  # your extra configurations here
+})
