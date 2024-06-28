@@ -45,7 +45,7 @@ gem 'premailer-rails'
 gem 'requestjs-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary', group: [:development, :test]
-gem 'wkhtmltopdf-heroku', group: :production
+gem 'wkhtmltopdf-heroku', '2.12.6.1.pre.jammy', group: :production
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
