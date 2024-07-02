@@ -1,21 +1,67 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+  <div class="pb-4">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-  <% content_for :title, "Activities" %>
+    <% content_for :title, "Activities" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Activities</h1>
-    <%= link_to "New activity", new_activity_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Activities</h1>
+      <%= link_to "New activity", new_activity_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
+    </div>
   </div>
 
   <div id="activities" class="min-w-full">
-    <% @activities.each do |activity| %>
-      <%= render activity %>
-      <p>
-        <%= link_to "Show this activity", activity, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+    <div class="relative overflow-x-auto dom_id voucher pb-2">
+      <table class="w-full text-sm text-center text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Provider
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Provider price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Public price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @activities.each do |activity| %>
+            <tr class="bg-white border-b">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  <%= activity.name %>
+              </th>
+              <td class="px-6 py-4">
+                  <%= activity.provider.name %>
+              </td>
+              <td class="px-6 py-4 text-center"">
+                  <%= activity.description %>
+              </td>
+              <td class="px-6 py-4">
+                  $<%= activity.provider_price %>
+              </td>
+              <td class="px-6 py-4">
+                  $<%= activity.public_price %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= link_to "Show this activity", activity, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

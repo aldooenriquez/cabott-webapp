@@ -1,22 +1,84 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <% content_for :title, "Vouchers" %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Vouchers</h1>
-    <%= link_to "New voucher", new_voucher_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="vouchers" class="min-w-full">
-    <% @vouchers.each do |voucher| %>
-      <%= render voucher %>
-      <p>
-        <%= link_to "Show this voucher", voucher, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
-      </p>
-      <hr class="mt-2">
+  <div class="pb-4">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
+
+    <% content_for :title, "Vouchers" %>
+
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Vouchers</h1>
+      <%= link_to "New voucher", new_voucher_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
+    </div>
+  </div>
+  <div id="vouchers" class="min-w-full">
+    <div class="relative overflow-x-auto dom_id voucher pb-2">
+      <table class="w-full text-sm text-center text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Voucher code
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Contact name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Contact email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Seller's name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Activity
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Reservation date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Total
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @vouchers.each do |voucher| %>
+            <tr class="bg-white border-b">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  <%= voucher.branched_id %>
+              </th>
+              <td class="px-6 py-4 text-center"">
+                  <%= voucher.contact_name %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.contact_email %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.user.name %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.activity.name %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.reservation_date.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.status %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= voucher.total %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= link_to "Show this voucher", voucher, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

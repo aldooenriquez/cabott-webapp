@@ -9,7 +9,7 @@
     <%= link_to "Edit this activity", edit_activity_path(@activity), class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Back to activities", activities_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block">
-      <%= button_to "Destroy this activity", @activity, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "mt-2 rounded-lg py-1.5 px-2.5 bg-gray-100 font-medium" %>
+      <%= button_to "Destroy this activity", @activity, method: :delete, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "mt-2 rounded-lg py-1.5 px-2.5 bg-red-700 text-white font-medium" %>
     </div>
   </div>
 </div>

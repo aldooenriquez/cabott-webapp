@@ -1,21 +1,55 @@
 <div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+  <div class="pb-4">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
 
-  <% content_for :title, "Providers" %>
+    <% content_for :title, "Providers" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Providers</h1>
-    <%= link_to "New provider", new_provider_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Providers</h1>
+      <%= link_to "New provider", new_provider_path, class: "ml-2 rounded-lg py-1.5 px-2.5 bg-blue-600 text-white block font-medium" %>
+    </div>
   </div>
 
   <div id="providers" class="min-w-full">
-    <% @providers.each do |provider| %>
-      <%= render provider %>
-      <p>
-        <%= link_to "Show this provider", provider, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
-      </p>
-    <% end %>
+    <div class="relative overflow-x-auto dom_id voucher pb-2">
+      <table class="w-full text-sm text-center text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Contact email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Branch name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @providers.each do |provider| %>
+            <tr class="bg-white border-b">
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                  <%= provider.name %>
+              </th>
+              <td class="px-6 py-4">
+                  <%= provider.contact_email %>
+              </td>
+              <td class="px-6 py-4 text-center"">
+                  <%= provider.branch.name %>
+              </td>
+              <td class="px-6 py-4">
+                  <%= link_to "Show this provider", provider, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
