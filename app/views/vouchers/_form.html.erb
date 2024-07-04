@@ -39,6 +39,16 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :total_adults %>
+    <%= form.number_field :total_adults, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-1/4" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :total_minors %>
+    <%= form.number_field :total_minors, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-1/4" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :payment_type %>
     <%= form.select(:payment_type, options_for_select(Voucher.payment_types.map {|key, value| [key.humanize.capitalize, Voucher.payment_types.key(value)]}, voucher.payment_type), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
   </div>

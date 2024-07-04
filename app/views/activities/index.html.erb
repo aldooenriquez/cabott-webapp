@@ -27,12 +27,6 @@
                     Description
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Provider price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Public price
-                </th>
-                <th scope="col" class="px-6 py-3">
                     Action
                 </th>
             </tr>
@@ -48,12 +42,6 @@
               </td>
               <td class="px-6 py-4 text-center"">
                   <%= activity.description %>
-              </td>
-              <td class="px-6 py-4">
-                  $<%= activity.provider_price %>
-              </td>
-              <td class="px-6 py-4">
-                  $<%= activity.public_price %>
               </td>
               <td class="px-6 py-4">
                   <%= link_to "Show this activity", activity, class: "rounded-lg py-1.5 px-2.5 bg-gray-100 inline-block font-medium" %>

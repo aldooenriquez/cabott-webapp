@@ -8,7 +8,11 @@
 <strong>Date:</strong> <%= @voucher.reservation_date.strftime("%d/%m/%Y") %><br>
 </p>
 <h2>Comments:</h2>
-<p><%= @voucher.comment %>
+<p>
+  <%= @voucher.total_adults %> x Adults<br>
+  <%= @voucher.total_minors %> x Minors
+</p>
+<p><%= @voucher.comment %></p>
 <h2>Thanks for joining and have a great day!</h2>
 <p>
   Please note that our transfer representative, from Cabo T&T Company - authorized by

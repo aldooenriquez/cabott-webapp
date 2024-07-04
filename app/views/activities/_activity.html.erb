@@ -14,14 +14,37 @@
     <%= activity.provider.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Provider price:</strong>
-    $<%= activity.provider_price %>
-  </p>
+  <strong class="block font-medium mb-1">Provider prices:</strong>
+  <div class="flex flex-row justify-around">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">General price:</strong>
+      $<%= activity.provider_general_price %>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Public price:</strong>
-    $<%= activity.public_price %>
-  </p>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Minor price:</strong>
+      <% if activity.provider_minor_price? %>
+        $<%= activity.provider_minor_price %>
+      <% else %>
+        N/A
+      <% end %>
+    </p>
+  </div>
 
+  <strong class="block font-medium mb-1">Public prices:</strong>
+  <div class="flex flex-row justify-around">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">General price:</strong>
+      $<%= activity.public_general_price %>
+    </p>
+
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Minor price:</strong>
+      <% if activity.public_minor_price %>
+        $<%= activity.public_minor_price %>
+      <% else %>
+        N/A
+      <% end %>
+    </p>
+  </div>
 </div>

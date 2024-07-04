@@ -76,6 +76,6 @@ class VouchersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def voucher_params
-      params.require(:voucher).permit(:contact_name, :contact_email, :activity_id, :user_id, :payment_type, :payment_tax, :total, :comment, :reservation_date)
+      params.require(:voucher).permit(:contact_name, :contact_email, :activity_id, :user_id, :payment_type, :payment_tax, :total, :comment, :reservation_date, :total_adults, :total_minors)
     end
 end
