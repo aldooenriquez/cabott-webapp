@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_051445) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_04_224842) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +20,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_051445) do
     t.integer "provider_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "provider_price"
-    t.decimal "public_price"
+    t.decimal "provider_general_price"
+    t.decimal "public_general_price"
+    t.decimal "public_minor_price"
+    t.decimal "provider_minor_price"
     t.index ["provider_id"], name: "index_activities_on_provider_id"
   end
 
@@ -75,6 +77,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_051445) do
     t.integer "user_id"
     t.text "comment"
     t.date "reservation_date", null: false
+    t.integer "total_adults", default: 1, null: false
+    t.integer "total_minors", default: 0, null: false
     t.index ["activity_id"], name: "index_vouchers_on_activity_id"
     t.index ["id"], name: "index_vouchers_on_id", unique: true
     t.index ["user_id"], name: "index_vouchers_on_user_id"
