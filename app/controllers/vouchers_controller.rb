@@ -1,5 +1,6 @@
 class VouchersController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_admin, only: %i[ edit update destroy ]
   before_action :set_voucher, only: %i[ show edit update destroy ]
 
   # GET /vouchers or /vouchers.json
@@ -69,6 +70,11 @@ class VouchersController < ApplicationController
   end
 
   private
+    def ensure_admin
+      if !current_user.admin?
+        raise ActionController::RoutingError, 'Not Found'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_voucher
       @voucher = Voucher.find(params[:id])

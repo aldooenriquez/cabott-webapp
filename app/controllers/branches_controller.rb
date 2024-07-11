@@ -1,5 +1,6 @@
 class BranchesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_admin
   before_action :set_branch, only: %i[ show edit update destroy ]
 
   # GET /branches or /branches.json
@@ -59,6 +60,11 @@ class BranchesController < ApplicationController
   end
 
   private
+    def ensure_admin
+      if !current_user.admin?
+        raise ActionController::RoutingError, 'Not Found'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
       @branch = Branch.find(params[:id])

@@ -5,12 +5,12 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Contact name:</strong>
+    <strong class="block font-medium mb-1">Guest name:</strong>
     <%= voucher.contact_name %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Contact email:</strong>
+    <strong class="block font-medium mb-1">Guest email:</strong>
     <%= voucher.contact_email %>
   </p>
 
@@ -30,6 +30,11 @@
   </p>
 
   <p class="my-5">
+    <strong class="block font-medium mb-1">Pickup time:</strong>
+    <%= voucher.reservation_date.strftime("%I:%M%p") %>
+  </p>
+
+  <p class="my-5">
     <strong class="block font-medium mb-1">Total adults:</strong>
     <%= voucher.total_adults %>
   </p>
@@ -39,25 +44,29 @@
     <%= voucher.total_minors %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Comments:</strong>
-    <%= voucher.comment %>
-  </p>
+  <% unless voucher.comment.empty?%>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Comments:</strong>
+      <%= voucher.comment %>
+    </p>
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Status:</strong>
-    <%= voucher.status %>
+    <%= voucher.status.capitalize %>
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Payment type:</strong>
+    <strong class="block font-medium mb-1">Form of payment:</strong>
     <%= voucher.payment_type.humanize.capitalize %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Payment tax applied?</strong>
-    <%= voucher.payment_tax %>
-  </p>
+  <% if voucher.payment_tax%>
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Credit card service fee applied?</strong>
+      <%= human_boolean(voucher.payment_tax) %>
+    </p>
+  <% end %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Total:</strong>

@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :contact_name %>
+    <%= form.label "Guest name" %>
     <%= form.text_field :contact_name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :contact_email %>
+    <%= form.label "Guest email" %>
     <%= form.text_field :contact_email, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div data-controller="provider">
     <div class="my-5">
-      <%= form.label 'Provider' %>
+      <%= form.label 'Supplier' %>
       <%= form.select(:provider_id, options_from_collection_for_select(Provider.where(branch_id: current_user.branch_id), 'id', 'name'), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", data: { action: "change->provider#change"}) %>
     </div>
 
@@ -35,7 +35,7 @@
 
   <div class="my-5">
     <%= form.label :reservation_date %>
-    <%= form.date_field :reservation_date, value: Date.current.strftime('%Y-%m-%d'), class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.datetime_field :reservation_date, value: DateTime.now, min: Date.today, include_seconds: false, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -49,12 +49,12 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :payment_type %>
+    <%= form.label "Form of payment" %>
     <%= form.select(:payment_type, options_for_select(Voucher.payment_types.map {|key, value| [key.humanize.capitalize, Voucher.payment_types.key(value)]}, voucher.payment_type), { :include_blank => true }, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
   </div>
 
   <div class="my-5">
-    <%= form.label :payment_tax %>
+    <%= form.label "Apply credit card service fee?" %>
     <%= form.check_box :payment_tax, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2" %>
   </div>
 

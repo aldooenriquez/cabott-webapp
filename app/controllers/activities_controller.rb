@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_admin
   before_action :set_activity, only: %i[ show edit update destroy ]
 
   # GET /activities or /activities.json
@@ -59,6 +60,11 @@ class ActivitiesController < ApplicationController
   end
 
   private
+    def ensure_admin
+      if !current_user.admin?
+        raise ActionController::RoutingError, 'Not Found'
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
       @activity = Activity.find(params[:id])
