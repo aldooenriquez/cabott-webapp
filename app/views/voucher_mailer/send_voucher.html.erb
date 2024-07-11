@@ -5,7 +5,16 @@
 <strong>Reservation code:</strong> <%= @voucher.branched_id %><br>
 <strong>Activity:</strong> <%= @activity.name %><br>
 <strong>Provider:</strong> <%= @provider.name %><br>
-<strong>Date:</strong> <%= @voucher.reservation_date.strftime("%d/%m/%Y") %><br>
+<strong>Reservation date:</strong> <%= @voucher.reservation_date.strftime("%d/%m/%Y") %><br>
+<strong>Pickup time:</strong> <%= @voucher.reservation_date.strftime("%I:%M%p") %><br>
+</p>
+<h2>Payment information:</h2>
+<p>
+<strong>Form of payment:</strong> <%= @voucher.payment_type.humanize.capitalize %><br>
+<% if @voucher.payment_tax %>
+  <strong>Credit card service fee applied?</strong> <%= @voucher.payment_tax%><br>
+<% end %>
+<strong>Total:</strong> <%= @voucher.total %><br>
 </p>
 <h2>Comments:</h2>
 <p>
@@ -14,9 +23,9 @@
 </p>
 <p><%= @voucher.comment %></p>
 <h2>Thanks for joining and have a great day!</h2>
+<h3>CANCELLATION POLICY</h3>
 <p>
-  Please note that our transfer representative, from Cabo T&T Company - authorized by
-  Playa Hotels & Resorts - will be waiting for you outside the terminal, wearing grey
-  slacks and a black uniform shirt holding a small sign so you can recognize him. It will
-  be very important; you show this confirmation to him/her to board the car.
+  No refunds will apply for cancellations made less than 24 hours before the scheduled service start time or for no-show services.
+  Refunds will only apply to cancellations made up to 24 hours prior to the scheduled time (conditions may apply).
+  Rates are subject to changes without previous advice. Please call to our Contact Center department directly in the event of any changes.
 </p>
