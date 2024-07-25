@@ -1,3 +1,4 @@
+<%= image_tag wicked_pdf_asset_base64("banner_correo_cabott.png"), width: "100%" %>
 <h1>Thank you for booking with us, <%= @voucher.contact_name %>!</h1>
 <h2>Client information:</h2>
 <p>
@@ -23,9 +24,15 @@
 </p>
 <p><%= @voucher.comment %></p>
 <h2>Thanks for joining and have a great day!</h2>
-<h3>CANCELLATION POLICY</h3>
-<p>
-  No refunds will apply for cancellations made less than 24 hours before the scheduled service start time or for no-show services.
-  Refunds will only apply to cancellations made up to 24 hours prior to the scheduled time (conditions may apply).
-  Rates are subject to changes without previous advice. Please call to our Contact Center department directly in the event of any changes.
+<p style="font-size:small;">
+  Cancelaciones: Reembolso completo con aviso de 24 horas o más antes del servicio, no aplica reembolso en avisos con menos de 24 horas antes, por servicios no utilizados y/o si pierde el servicio por no estar a la hora indicada en este récibo.
+  Servicios Turisticos JAVI S de RL de CV y sus afiliados actúan unica-mente como agentes intermediarios entre el pasajero (comprador de la excursión) y el prestador del servicio y no asume responsabi-lidad por daños, muerte, pérdidas, accidentes, cancelaciones parciales o retardos de personas o servicios ocasionados por actos de negligencia o falla de cualquier proveedor o persona que pro-porcione el servicio y/o por causas de fuerza mayor.
+  El comprador deslinda toda responsabilidad a Servicios Turisticos
+  JAVIS de RL de CV y a cualquiera de sus afiliados por los servicios adquiridos.
+</p>
+<p style="font-size:small;">
+  Cancellations: Full refund for cancellations madre 24 hours or more before the service. No refund for cancellations made with less than 24 hours ir for no show events.
+  Servicios Turisticos JAVI S de RL de CV and its afilliates are independent from suppliers over whom we have no direct control and we act only as agents for the passenger in making arrangements for sightseeing or any other services and do not assume any liability whatsoever for any injury, damage, death, loss, accident, partial cancellations or delay to person or property due to an act of negligence of, or default of any supplier or person rendering any of the services included in the tour or by act of God.
+  The purchaser hereby waives any claim against Servicios Turisticos
+  JAVI S de RL de CV and its afilliates related to the service pur-chased.
 </p>

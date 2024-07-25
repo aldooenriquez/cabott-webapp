@@ -17,7 +17,7 @@ class VoucherMailer < ApplicationMailer
 
     def generate_pdf(voucher:, activity:, provider:)
       url = Rails.application.routes.url_helpers.mailers_preview_voucher_url(voucher_id: voucher.id, activity_id: activity.id, provider_id: provider.id)
-    html = Net::HTTP.get(URI.parse(url))
+      html = Net::HTTP.get(URI.parse(url))
 
       WickedPdf.new.pdf_from_string(html)
     end
