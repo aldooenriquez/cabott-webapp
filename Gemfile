@@ -74,5 +74,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.6"
+gem "font-awesome-sass"
 
 gem "devise", "~> 4.9"
