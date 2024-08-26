@@ -5,8 +5,8 @@ class VouchersController < ApplicationController
 
   # GET /vouchers or /vouchers.json
   def index
-    @vouchers = Voucher.all if current_user.admin?
-    @vouchers = Voucher.where(user_id: current_user.id) if current_user.seller?
+    @vouchers = Voucher.all.order(created_at: :desc) if current_user.admin?
+    @vouchers = Voucher.where(user_id: current_user.id ).where('created_at >= ?', 7.days.ago).order(created_at: :desc) if current_user.seller?
   end
 
   # GET /vouchers/1 or /vouchers/1.json
