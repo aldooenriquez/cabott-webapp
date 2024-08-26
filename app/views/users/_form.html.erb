@@ -26,9 +26,12 @@
     <%= form.text_field :email, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
+  <div class="my-5" data-controller="password-toggle">
     <%= form.label :password %>
-    <%= form.text_field :password, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full", type: 'password' %>
+    <div class="flex flex-row items-center">
+      <%= form.password_field :password, autocomplete: "current-password", class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full unhide', placeholder: "Password", "data-password-toggle-target": "unhide" %>
+      <a data-action="click->password-toggle#password" class="w-5 px-5 password-field-icon-1 fa-solid fa-eye-slash"></a>
+    </div>
   </div>
 
   <div class="my-5">
