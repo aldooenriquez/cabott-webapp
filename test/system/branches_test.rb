@@ -1,12 +1,16 @@
 require "application_system_test_case"
 
 class BranchesTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @branch = branches(:one)
+    @branch = branches(:cabos)
+    @user = users(:seller)
+    sign_in(@user)
   end
 
   test "visiting the index" do
-    visit branches_url
+    visit branches
     assert_selector "h1", text: "Branches"
   end
 

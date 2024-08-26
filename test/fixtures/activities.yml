@@ -1,13 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  country: 1
-  provider: one
-
-two:
-  name: MyString
-  description: MyText
-  country: 1
-  provider: two
+cuatrimotos:
+  name: Renta Cuatrimotos
+  description: Renta de 1 hora cuatrimotos
+  provider: cabo_adventure
+  provider_general_price: 100
+  public_general_price: 150
+  provider_minor_price: 50
+  public_minor_price: 75

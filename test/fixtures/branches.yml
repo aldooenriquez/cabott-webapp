@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  code: MyString
-  state: MyString
-  country: 1
+cabos:
+  name: Los Cabos
+  code: CABO
+  state: Baja California Sur
+  country: 0
 
-two:
-  name: MyString
-  code: MyString
-  state: MyString
-  country: 1
+vallarta:
+  name: Puerto Vallarta
+  code: PTVA
+  state: Jalisco
+  country: 0
